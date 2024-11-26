@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Aggiungi lo studente!</title>
+</head>
+<body>
+<h1>Aggiungi un nuovo studente</h1>
+<form th:action="@{/students}" method="post" th:object="${STUDENT}">
+</form>
+<a th:href="@{/students}">Vai alla lista di tutti gli studenti</a>
+</body>
+</html>
