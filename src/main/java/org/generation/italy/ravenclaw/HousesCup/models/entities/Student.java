@@ -13,24 +13,22 @@ public class Student {
     private String nome;
     private String cognome;
     private String sesso;
-    @Column(name = "data")
-    private LocalDate data_di_nascita;
+    private LocalDate data;
     private String email;
     private String telefono;
-    @Column(name = "titolo")
-    private String titolo_di_studio;
+    private String titolo;
     private String background;
     private String casata;
     public Student(){};
-    public Student(long id, String nome, String cognome, String sesso, LocalDate data_di_nascita, String email, String telefono, String titolo_di_studio, String background, String casata) {
+    public Student(long id, String nome, String cognome, String sesso, LocalDate data, String email, String telefono, String titolo_di_studio, String background, String casata) {
         this.id = id;
         this.nome = nome;
         this.cognome = cognome;
         this.sesso = sesso;
-        this.data_di_nascita = data_di_nascita;
+        this.data = data;
         this.email = email;
         this.telefono = telefono;
-        this.titolo_di_studio = titolo_di_studio;
+        this.titolo = titolo_di_studio;
         this.background = background;
         this.casata = casata;
     }
@@ -67,12 +65,12 @@ public class Student {
         this.sesso = sesso;
     }
 
-    public LocalDate getData_di_nascita() {
-        return data_di_nascita;
+    public LocalDate getData() {
+        return data;
     }
 
-    public void setData_di_nascita(LocalDate data_di_nascita) {
-        this.data_di_nascita = data_di_nascita;
+    public void setData(LocalDate data) {
+        this.data = data;
     }
 
     public String getEmail() {
@@ -91,12 +89,12 @@ public class Student {
         this.telefono = telefono;
     }
 
-    public String getTitolo_di_studio() {
-        return titolo_di_studio;
+    public String getTitolo() {
+        return titolo;
     }
 
-    public void setTitolo_di_studio(String titolo_di_studio) {
-        this.titolo_di_studio = titolo_di_studio;
+    public void setTitolo(String titolo) {
+        this.titolo = titolo;
     }
 
     public String getBackground() {
