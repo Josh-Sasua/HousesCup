@@ -1,8 +1,9 @@
 package org.generation.italy.ravenclaw.HousesCup.models.entities;
-
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
+
 @Entity
 @Access(AccessType.FIELD)
 @Table(name="studenti")
@@ -19,6 +20,7 @@ public class Student {
     private String titolo;
     private String background;
     private String casata;
+
     public Student(){};
     public Student(long id, String nome, String cognome, String sesso, LocalDate data, String email, String telefono, String titolo_di_studio, String background, String casata) {
         this.id = id;
@@ -32,11 +34,9 @@ public class Student {
         this.background = background;
         this.casata = casata;
     }
-
     public long getId() {
         return id;
     }
-
     public void setId(long id) {
         this.id = id;
     }
@@ -44,7 +44,6 @@ public class Student {
     public String getNome() {
         return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -52,7 +51,6 @@ public class Student {
     public String getCognome() {
         return cognome;
     }
-
     public void setCognome(String cognome) {
         this.cognome = cognome;
     }
@@ -60,7 +58,6 @@ public class Student {
     public String getSesso() {
         return sesso;
     }
-
     public void setSesso(String sesso) {
         this.sesso = sesso;
     }
@@ -68,7 +65,6 @@ public class Student {
     public LocalDate getData() {
         return data;
     }
-
     public void setData(LocalDate data) {
         this.data = data;
     }
@@ -76,7 +72,6 @@ public class Student {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -84,7 +79,6 @@ public class Student {
     public String getTelefono() {
         return telefono;
     }
-
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
@@ -92,7 +86,6 @@ public class Student {
     public String getTitolo() {
         return titolo;
     }
-
     public void setTitolo(String titolo) {
         this.titolo = titolo;
     }
@@ -100,7 +93,6 @@ public class Student {
     public String getBackground() {
         return background;
     }
-
     public void setBackground(String background) {
         this.background = background;
     }
@@ -108,7 +100,6 @@ public class Student {
     public String getCasata() {
         return casata;
     }
-
     public void setCasata(String casata) {
         this.casata = casata;
     }

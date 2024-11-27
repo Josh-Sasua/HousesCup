@@ -5,9 +5,37 @@
     <title>Aggiungi lo studente!</title>
 </head>
 <body>
-<h1>Aggiungi un nuovo studente</h1>
-<form th:action="@{/students}" method="post" th:object="${STUDENT}">
-</form>
-<a th:href="@{/students}">Vai alla lista di tutti gli studenti</a>
+    <h1>Aggiungi un nuovo studente</h1>
+    <form th:action="@{/students}" method="post" th:object="${STUDENT}">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" th:field="*{nome}" required>
+        <br>
+        <label for="cognome">Cognome</label>
+        <input type="text" id="cognome" th:field="*{cognome}" required>
+        <br>
+        <label for="data">Data di Nascita</label>
+        <input type="date" id="data" th:field="*{data}" required>
+        <br>
+        <label for="sesso">Sesso</label>
+        <input type="text" id="sesso" th:field="*{sesso}" required>
+        <br>
+        <label for="background">Background</label>
+        <input type="text" id="background" th:field="*{background}" required>
+        <br>
+        <label for="email">Indirizzo Mail</label>
+        <input type="text" id="email" th:field="*{email}" required>
+        <br>
+        <label for="telefono">Telefono</label>
+        <input type="text" id="telefono" th:field="*{telefono}" required>
+        <br>
+        <label for="titolo">Titolo</label>
+        <input type="text" id="titolo" th:field="*{titolo}" required>
+        <br>
+        <label for="casata">Casata</label>
+        <input type="text" id="casata" th:field="*{casata}" required>
+        <br>
+        <button type="submit">Aggiungi studente</button>
+    </form>
+    <a th:href="@{/students}">Torna alla lista</a>
 </body>
 </html>

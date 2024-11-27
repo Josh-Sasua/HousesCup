@@ -4,34 +4,33 @@
     <title>Student List</title>
   </head>
   <body>
-  <h1>Student List</h1>
-  <a th:href="@{/students/new}">Add New Students</a>
-  <table border="1">
-    <tr>
-      <th>Id</th>
-      <th>Nome</th>
-      <th>Cognome</th>
-      <th>Sesso</th>
-      <th>Data di nascita</th>
-      <th>Email</th>
-      <th>Telefono</th>
-      <th>Titolo di studio</th>
-      <th>Background</th>
-      <th>Casata</th>
-    </tr>
-    <tr th:each="student : ${STUDENTS}">
-      <td th:text="${student.id}"></td>
-      <td th:text="${student.nome}"></td>
-      <td th:text="${student.cognome}"></td>
-      <td th:text="${student.sesso}"></td>
-      <td th:text="${student.data}"></td>
-      <td th:text="${student.email}"></td>
-      <td th:text="${student.telefono}"></td>
-      <td th:text="${student.titolo}"></td>
-      <td th:text="${student.background}"></td>
-      <td th:text="${student.casata}"></td>
-    </tr>
-  </table>
-  <a th:href="@{'/student/createStudent'}">Crea un nuovo studente</a>
+    <h1>Student List</h1>
+    <table border="1">
+      <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Cognome</th>
+        <th>Sesso</th>
+        <th>Data di nascita</th>
+        <th>Email</th>
+        <th>Telefono</th>
+        <th>Titolo di studio</th>
+        <th>Background</th>
+        <th>Casata</th>
+      </tr>
+      <tr th:each="student : ${STUDENTS}">
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.nome}"></td>
+        <td th:text="${student.cognome}"></td>
+        <td th:text="${student.sesso}"></td>
+        <td th:text="${student.data}"></td>
+        <td th:text="${student.email}"></td>
+        <td th:text="${student.telefono}"></td>
+        <td th:text="${student.titolo}"></td>
+        <td th:text="${student.background}"></td>
+        <td th:text="${student.casata}"></td>
+      </tr>
+    </table>
+    <a th:href="@{'/students/create'}">Crea un nuovo studente</a>
   </body>
   </html>

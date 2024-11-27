@@ -1,5 +1,4 @@
 package org.generation.italy.ravenclaw.HousesCup.models.services;
-
 import org.generation.italy.ravenclaw.HousesCup.models.entities.Student;
 import org.generation.italy.ravenclaw.HousesCup.models.repositories.StudentRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,6 @@ public class HousesServiceJPA implements HousesService{
         this.studentRepo = studentRepo;
     }
 
-
     @Override
     public List<Student> getAllStudents() {
         return studentRepo.findAll();
@@ -24,5 +22,10 @@ public class HousesServiceJPA implements HousesService{
     @Override
     public Student addStudente(Student newStudente) {
         return null;
+    }
+
+    @Override
+    public Student save(Student newStudente) {
+        return studentRepo.save(newStudente);
     }
 }
