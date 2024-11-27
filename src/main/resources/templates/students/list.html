@@ -17,6 +17,7 @@
         <th>Titolo di studio</th>
         <th>Background</th>
         <th>Casata</th>
+        <th>Punti</th>
       </tr>
       <tr th:each="student : ${STUDENTS}">
         <td th:text="${student.id}"></td>
@@ -29,6 +30,9 @@
         <td th:text="${student.titolo}"></td>
         <td th:text="${student.background}"></td>
         <td th:text="${student.casata}"></td>
+        <td>
+          <button th:href="@{'/students/point}">Add</button>
+        </td>
       </tr>
     </table>
     <a th:href="@{'/students/create'}">Crea un nuovo studente</a>
