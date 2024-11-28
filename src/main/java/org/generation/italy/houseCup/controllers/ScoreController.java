@@ -47,7 +47,7 @@ public class ScoreController {
     }
     @PostMapping("/create")
     public String saveScore(CreateScoreViewModel createScoreViewModel){
-        long teacherId = 1;
+        long teacherId = 1; //createScoreViewModel.getTeacherId(); in caso fosse vero
         long studentId = createScoreViewModel.getStudentId();
         String reason = createScoreViewModel.getReason();
         int score = createScoreViewModel.getScore();
