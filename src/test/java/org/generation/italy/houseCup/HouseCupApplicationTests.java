@@ -1,10 +1,10 @@
-package org.generation.italy.ravenclaw.HousesCup;
+package org.generation.italy.houseCup;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HousesCupApplicationTests {
+class HouseCupApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,11 +1,13 @@
-package org.generation.italy.ravenclaw.HousesCup;
+package org.generation.italy.houseCup;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class HousesCupApplication {
+public class HouseCupApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HousesCupApplication.class, args);
+		SpringApplication.run(HouseCupApplication.class, args);
 	}
+
 }
