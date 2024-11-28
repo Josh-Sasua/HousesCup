@@ -9,5 +9,4 @@ public class HouseCupApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(HouseCupApplication.class, args);
 	}
-
 }

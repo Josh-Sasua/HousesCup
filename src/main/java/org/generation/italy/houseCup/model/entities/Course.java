@@ -24,9 +24,7 @@ public class Course {
     @ManyToMany(mappedBy = "courses")
     private List<Teacher> teachers = new ArrayList<>();
     public Course(){
-
     }
-
     public Course(long id, String className) {
         this.id = id;
         this.className = className;

@@ -15,7 +15,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import java.util.List;
 
 @Controller
@@ -56,10 +55,20 @@ public class ScoreController {
         //MODO DUE INVOCO UN METODO PASSANDOGLI GLI ID E FA TUTTO LUI
         try {
             Score saved = registerService.saveScore(score, reason, studentId, teacherId);
-            return "/score/houseStanding";
+            return "redirect:/score/houseStanding";
         } catch (EntityNotFoundException e) {
             System.out.println(e.getMessage());
             return "/score/error";
         }
+    }
+    @GetMapping("/houseStanding")
+    public String showHouseStanding(Model model){
+        model.addAttribute("gryffindorScore", 100);
+        model.addAttribute("hufflepuffScore", -100);
+        model.addAttribute("slytherinScore", 35);
+        model.addAttribute("rocketclawScore", 1000);
+        model.addAttribute("winner", "rocketclaw");
+
+        return "/score/houseStanding";
     }
 }
