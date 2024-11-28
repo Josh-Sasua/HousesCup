@@ -51,7 +51,7 @@ public class ScoreController {
         long studentId = createScoreViewModel.getStudentId();
         String reason = createScoreViewModel.getReason();
         int score = createScoreViewModel.getScore();
-        //MODO UNO POTREI CARICARMI LO STUDENT E IL TEACHER ASSOCIATI AGLI ID
+        //MODO UNO POTREI CARICARMI LO STUDENT E IL TE💩ACHER ASSOCIATI AGLI ID
         //MODO DUE INVOCO UN METODO PASSANDOGLI GLI ID E FA TUTTO LUI
         try {
             Score saved = registerService.saveScore(score, reason, studentId, teacherId);
@@ -65,8 +65,8 @@ public class ScoreController {
     public String showHouseStanding(Model model){
         model.addAttribute("gryffindorScore", 100);
         model.addAttribute("hufflepuffScore", -100);
-        model.addAttribute("slytherinScore", 35);
-        model.addAttribute("rocketclawScore", 1000);
+        model.addAttribute("slytherinScore", -1000);
+        model.addAttribute("rocketclawScore", 1000000);
         model.addAttribute("winner", "rocketclaw");
 
         return "/score/houseStanding";
