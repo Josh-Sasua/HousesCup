@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Assegna una classe</title>
+</head>
+<body>
+    <form th:action="@{/score/create}" method="get" th:object="${courseSelector}">
+        <label for="course">Seleziona una classe</label>
+        <select id="course" th:field="*{courseId}">
+            <option value = "0" disabled>Scegli una classe</option>
+            <option th:each="c : *{courseOptions}" th:value="${c.id}" th:text="${c.name}"></option>
+        </select>
+        <button type="submit">Apri corso</button>
+    </form>
+</body>
+</html>

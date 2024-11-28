@@ -1,15 +1,13 @@
 package org.generation.italy.houseCup.model.services;
 
-import org.generation.italy.houseCup.model.entities.Course;
-import org.generation.italy.houseCup.model.entities.House;
-import org.generation.italy.houseCup.model.entities.Student;
-import org.generation.italy.houseCup.model.repositories.CourseRepositoryJpa;
-import org.generation.italy.houseCup.model.repositories.HouseRepositoryJpa;
-import org.generation.italy.houseCup.model.repositories.StudentRepositoryJpa;
+import org.generation.italy.houseCup.model.entities.*;
+import org.generation.italy.houseCup.model.exceptions.EntityNotFoundException;
+import org.generation.italy.houseCup.model.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,17 +16,27 @@ public class RegisterServiceJpa implements RegisterService{
     private CourseRepositoryJpa courseRepo;
     private HouseRepositoryJpa houseRepo;
     private StudentRepositoryJpa studentRepo;
+    private TeacherRepositoryJpa teacherRepo;
+    private ScoreRepositoryJpa scoreRepo;
 
     @Autowired
-    public RegisterServiceJpa(CourseRepositoryJpa courseRepo, HouseRepositoryJpa houseRepo, StudentRepositoryJpa studentRepo){
+    public RegisterServiceJpa(CourseRepositoryJpa courseRepo, HouseRepositoryJpa houseRepo,
+                              TeacherRepositoryJpa teacherRepo, StudentRepositoryJpa studentRepo, ScoreRepositoryJpa scoreRepo){
         this.courseRepo = courseRepo;
         this.houseRepo = houseRepo;
         this.studentRepo = studentRepo;
+        this.teacherRepo = teacherRepo;
+        this.scoreRepo = scoreRepo;
     }
 
     @Override
     public List<Course> getAllCourses() {
         return courseRepo.findAll();
+    }
+
+    @Override
+    public List<Course> getAllActiveCourses() {
+        return List.of();
     }
 
     @Override
@@ -54,5 +62,25 @@ public class RegisterServiceJpa implements RegisterService{
     @Override
     public Optional<Student> findStudentById(long id) {
         return studentRepo.findById(id);
+    }
+
+    @Override
+    public List<Student> findStudentsByCourse(long courseId) {
+        return studentRepo.findByCourseId(courseId);
+    }
+
+    @Override
+    public Score saveScore(int score, String reason, long studentId, long teacherId) throws EntityNotFoundException {
+        Optional<Student> os = studentRepo.findById(studentId);
+        if (os.isEmpty()){
+            throw new EntityNotFoundException("Lo studente con id: " + studentId + " non esiste brotherman.");
+        }
+        Optional<Teacher> ot = teacherRepo.findById(teacherId);
+        if (ot.isEmpty()){
+            throw new EntityNotFoundException("Il docente con id: " + teacherId + " non esiste broski.");
+        }
+        Score newScore = new Score(0, score, reason, LocalDate.now(), os.get(), ot.get());
+        scoreRepo.save(newScore);
+        return newScore;
     }
 }

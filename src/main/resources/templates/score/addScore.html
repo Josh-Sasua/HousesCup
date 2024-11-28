@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form th:action="@{/score/create}" method="post" th:object="${scoreModel}">
+        <label for="student">Scegli uno studente</label>
+        <select th:field="*{studentId}" id="student">
+            <option th:each="s : *{studentOptions}" th:value="${s.id}" th:text="${s.fullName}"></option>
+        </select>
+        <br>
+        <label for="score">Inserisci punteggio</label>
+        <input th:field="*{score}" type="number" id="score">
+        <br>
+        <label for="reason">Inserisci ragione</label>
+        <input th:field="*{reason}" type="text" id="reason">
+        <button>Premimi :3</button>
+    </form>
+</body>
+</html>
